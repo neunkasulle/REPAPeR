@@ -1,0 +1,3 @@
+docker_edition: 'ce'
+docker_package: "docker-18.03.1-ce"
+docker_package_state: present

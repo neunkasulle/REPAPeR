@@ -1,0 +1,15 @@
+- name: create smokeping dirs
+  state: directory
+  path: {{ item }}
+  with_items:
+    - "/smokeping/data"
+    - "/smokeping/config"
+- name: start smokeping
+  docker_container:
+    name: smokeping
+    image: linuxserver/smokeping
+    state: started
+    restart: yes
+    volumes:
+      - "/smokeping/data:/data"
+      - "/smokeping/config:/config"
